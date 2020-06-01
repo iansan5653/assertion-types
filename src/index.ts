@@ -23,3 +23,5 @@ export type NotExtends<A, B> = A extends B ? false : true;
 
 /** Tests that `A` is not equal to `B`. */
 export type NotEquals<A, B> = A extends B ? (B extends A ? false : true) : true;
+
+
