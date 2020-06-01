@@ -1,5 +1,5 @@
 {
-  "name": "this-package",
+  "name": "assertion-types",
   "version": "1.0.0",
   "description": "Simple utilities for testing types.",
   "main": "dist/index.js",
@@ -37,6 +37,9 @@
     "dist/index.js.map"
   ],
   "keywords": [
-    "types", "testing", "assert", "type testing"
+    "types",
+    "testing",
+    "assert",
+    "type testing"
   ]
 }
