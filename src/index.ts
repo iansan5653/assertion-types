@@ -10,7 +10,7 @@
  * @example
  * export type AreSameTest = Assert<Equals<123, 123>>;
  */
-export type Assert<X extends true> = X;
+export type Assert<Test extends true> = Test;
 
 /** Tests that `A` extends `B` (`A` is assignable to `B`). */
 export type Extends<A, B> = A extends B ? true : false;
