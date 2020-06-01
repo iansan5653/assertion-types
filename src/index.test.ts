@@ -1,7 +1,7 @@
 /**
  * @file **type-assertions** | Tests for index.ts.
  * @author Ian Sanders
- * @copyright 2019 Ian Sanders
+ * @copyright 2020 Ian Sanders
  * @license MIT
  */
 

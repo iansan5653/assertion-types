@@ -1,11 +1,15 @@
 /**
  * @file **assertion-types** | Simple utilities for testing types.
  * @author Ian Sanders
- * @copyright 2019 Ian Sanders
+ * @copyright 2020 Ian Sanders
  * @license MIT
  */
 
-/** The core assertion utility. Asserts that `X` is valid. */
+/**
+ * The core assertion utility. Asserts that `X` is `true`.
+ * @example
+ * export type AreSameTest = Assert<Equals<123, 123>>;
+ */
 export type Assert<X extends true> = X;
 
 /** Tests that `A` extends `B` (`A` is assignable to `B`). */
