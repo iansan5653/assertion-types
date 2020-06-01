@@ -5,7 +5,7 @@
  * @license MIT
  */
 
-import {Assert, Extends, Equals, NotExtends, NotEquals} from "./index";
+import {Assert, Equals, Extends, NotEquals, NotExtends} from "./index";
 
 // NOTE: Types are exported to avoid unused variable warnings.
 

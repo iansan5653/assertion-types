@@ -1,5 +1,5 @@
 /**
- * @file **this-module** | File description.
+ * @file **assertion-types** | Simple utilities for testing types.
  * @author Ian Sanders
  * @copyright 2019 Ian Sanders
  * @license MIT
