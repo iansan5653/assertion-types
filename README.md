@@ -84,7 +84,8 @@ If any test fails, the error will be `ts(2344)`:
 
 ### `Equals<A, B>`
 
-Tests that `A` and `B` are equal (by checking that `A` extends `B` and `B` extends `A`).
+Tests that `A` and `B` are equal (by checking that `A` extends `B` and `B`
+extends `A`).
 
 ```ts
 export type GoodA = Assert<Equals<string, string>>; // ✔️
@@ -96,7 +97,8 @@ export type BadB = Assert<Equals<1, 1 | 2>>; // ❌
 
 ### `NotEquals<A, B>`
 
-Tests that `A` is not equal to `B` (by checking that `A` does not extend `B` or `B` does not extend `A`).
+Tests that `A` is not equal to `B` (by checking that `A` does not extend `B` or
+`B` does not extend `A`).
 
 ```ts
 export type GoodA = Assert<NotEquals<"abc", string>>; // ✔️
@@ -108,7 +110,7 @@ export type BadB = Assert<NotEquals<1 | 2, 1 | 2>>; // ❌
 
 ### `Extends<A, B>`
 
-Tests that `A` extends `B` (in other words, `A` is assignable to `B`).
+Tests that `A` extends `B` (`A` is assignable to `B`).
 
 ```ts
 export type GoodA = Assert<Extends<"abc", string>>; // ✔️
@@ -130,6 +132,16 @@ export type BadA = Assert<NotExtends<"abc", string>>; // ❌
 export type BadB = Assert<NotExtends<1, 1 | 2>>; // ❌
 ```
 
+## Limitations
+
+Type equality is checked by examining whether the types are both assignable to
+each other. It is possible (though rare) that two types could be different but
+assignable to each other:
+
+```ts
+export type Limitation = Assert<Equals<any, unknown>>; // ✔️!
+```
+
 ## Comparison With Alternatives
 
 ### `dtslint`
@@ -146,7 +158,7 @@ library:
   it errors:
   ```ts
   // $ExpectType X<string | number>
-  type Example = X<number | string>;
+  type Example = X<number | string>; // ❌!
   ```
 
 ### `tsd`
@@ -155,7 +167,8 @@ Linked on the `dtslint` page is an alternative library just for testing types:
 [`tsd`](https://github.com/SamVerschueren/tsd). `tsd` appears to solve many
 problems and is a great contendor for testing types, however:
 
-- It still doesn't take advantage of the compiler's abilities.
+- It still doesn't take advantage of the compiler's abilities (adds an
+  additional testing step).
 - It has a not-insignificant learning curve and doesn't always have the outcomes
   you'd expect (https://github.com/SamVerschueren/tsd/issues/65).
 - Setup requires some extra steps, whereas this library is drop-in.
