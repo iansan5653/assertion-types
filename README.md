@@ -61,9 +61,31 @@ that you assume cannot happen based on your understanding of your types.
 
 ## Comparison With Alternatives
 
-The standard alternative for this is `dtslint`, which uses `$ExpectType`
-comments to test types with an external tool. However, this requires an
-additional testing step rather than just taking advantage of the compiler's
-abilities. A failed `$ExpectType` will only error when someone runs the
-`dtslint` command, while an error with these utilities will never make it past
-`tsc`.
+### `dtslint`
+
+The standard alternative for this is
+[`dtslint`](https://github.com/microsoft/dtslint), which uses `$ExpectType`
+comments to test types with an external tool. This tool is in wide usage and
+works well, however it comes with some disadvantages that led me to create this
+library:
+
+- It adds an extra step: you always have to run `dtslint` to test your types.
+- It doesn't take advantage of the compiler's inherent ability to test types.
+- It is very strict about what a type is. The following should pass, but instead
+  it errors:
+  ```ts
+  // $ExpectType X<string | number>
+  type Example = X<number | string>;
+  ```
+
+### `tsd`
+
+Linked on the `dtslint` page is an alternative library just for testing types:
+[`tsd`](https://github.com/SamVerschueren/tsd). `tsd` appears to solve many
+problems and is a great contendor for testing types, however:
+
+- It still doesn't take advantage of the compiler's abilities.
+- It has a not-insignificant learning curve and doesn't always have the outcomes
+  you'd expect (https://github.com/SamVerschueren/tsd/issues/65).
+- Setup requires some extra steps, whereas this library is drop-in.
+- It's not actively maintained (pull requests are open from September 2019).
