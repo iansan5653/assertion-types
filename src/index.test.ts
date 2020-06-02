@@ -73,6 +73,8 @@ export type Equals_Numeric = Assert<Equals<123, 123>>;
 export type Equals_String = Assert<Equals<string, string>>;
 export type Equals_Interface = Assert<Equals<Example, Example>>;
 export type Equals_EqualUnion = Assert<Equals<1 | 2, 1 | 2>>;
+export type Equals_Unknown = Assert<Equals<unknown, unknown>>;
+export type Equals_Any = Assert<Equals<any, any>>;
 // @ts-expect-error
 export type Equals_Extends = Assert<Equals<ExtendsExample, Example>>;
 // @ts-expect-error
@@ -93,6 +95,10 @@ export type NotEquals_String = Assert<NotEquals<string, string>>;
 export type NotEquals_Interface = Assert<NotEquals<Example, Example>>;
 // @ts-expect-error
 export type NotEquals_EqualUnion = Assert<NotEquals<1 | 2, 1 | 2>>;
+// @ts-expect-error
+export type NotEquals_Unknown = Assert<NotEquals<unknown, unknown>>;
+// @ts-expect-error
+export type NotEquals_Any = Assert<NotEquals<any, any>>;
 export type NotEquals_Extends = Assert<NotEquals<ExtendsExample, Example>>;
 export type NotEquals_InvertedExtends = Assert<
   NotEquals<Example, ExtendsExample>
