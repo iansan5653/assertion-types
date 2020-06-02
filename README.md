@@ -32,6 +32,25 @@ export type ExtendsExample = Assert<Extends<123, number>>;
 export type NotExtendsExample = Assert<NotExtends<number, 123>>;
 ```
 
+## Getting Started
+
+Install via NPM:
+
+```sh
+npm install --save-dev assertion-types
+```
+
+After that, just import into your test files:
+
+```ts
+import * as assertionTypes from "assertion-types";
+// OR
+import {Assert, Equals, Extends, NotEquals, NotExtends} from "assertion-types";
+```
+
+No need to run any commands to run the tests - if they error, they will error
+when the TypeScript compiler runs.
+
 ## Purpose
 
 Any sufficiently complex TypeScript project will eventually require the
