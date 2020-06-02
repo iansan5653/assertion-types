@@ -35,7 +35,7 @@ that you assume cannot happen based on your understanding of your types.
 
 ## Comparison With Alternatives
 
-The standard alternative for this is `dtslist`, which uses `$ExpectType`
+The standard alternative for this is `dtslint`, which uses `$ExpectType`
 comments to test types with an external tool. However, this requires an
 additional testing step rather than just taking advantage of the compiler's
 abilities. A failed `$ExpectType` will only error when someone runs the
