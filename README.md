@@ -59,6 +59,77 @@ cannot be written for types. However, testing these types ensures that your type
 system is sound and therefore you can rely on type errors to prevent the cases
 that you assume cannot happen based on your understanding of your types.
 
+## Documentation
+
+### `Assert<Test>`
+
+Simply asserts that the type of `Test` is `true`:
+
+```ts
+export type Good = Assert<true>; // ✔️
+
+// Type 'false' does not satisfy the constraint 'true'. ts(2344)
+export type Bad = Assert<false>; // ❌
+```
+
+### Tests
+
+For all of the following tests, the resulting type is `true` if the test passes
+(and `false` if it does not). Since `Assert` tests that the type is `true`, they
+will pass if used with `Assert`.
+
+If any test fails, the error will be `ts(2344)`:
+
+> Type 'false' does not satisfy the constraint 'true'.
+
+### `Equals<A, B>`
+
+Tests that `A` and `B` are equal (by checking that `A` extends `B` and `B` extends `A`).
+
+```ts
+export type GoodA = Assert<Equals<string, string>>; // ✔️
+export type GoodB = Assert<Equals<1 | 2, 1 | 2>>; // ✔️
+
+export type BadA = Assert<Equals<"abc", string>>; // ❌
+export type BadB = Assert<Equals<1, 1 | 2>>; // ❌
+```
+
+### `NotEquals<A, B>`
+
+Tests that `A` is not equal to `B` (by checking that `A` does not extend `B` or `B` does not extend `A`).
+
+```ts
+export type GoodA = Assert<NotEquals<"abc", string>>; // ✔️
+export type GoodB = Assert<NotEquals<1, 1 | 2>>; // ✔️
+
+export type BadA = Assert<NotEquals<string, string>>; // ❌
+export type BadB = Assert<NotEquals<1 | 2, 1 | 2>>; // ❌
+```
+
+### `Extends<A, B>`
+
+Tests that `A` extends `B` (in other words, `A` is assignable to `B`).
+
+```ts
+export type GoodA = Assert<Extends<"abc", string>>; // ✔️
+export type GoodB = Assert<Extends<1, 1 | 2>>; // ✔️
+
+export type BadA = Assert<Extends<"abc", number>>; // ❌
+export type BadB = Assert<Extends<string, "abc">>; // ❌
+```
+
+### `NotExtends<A, B>`
+
+Tests that `A` does not extend `B` (`A` cannot be assigned to `B`).
+
+```ts
+export type GoodA = Assert<NotExtends<"abc", number>>; // ✔️
+export type GoodB = Assert<NotExtends<string, "abc">>; // ✔️
+
+export type BadA = Assert<NotExtends<"abc", string>>; // ❌
+export type BadB = Assert<NotExtends<1, 1 | 2>>; // ❌
+```
+
 ## Comparison With Alternatives
 
 ### `dtslint`
