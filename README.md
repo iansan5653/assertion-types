@@ -17,19 +17,17 @@ Usage is simple:
 ```ts
 import {Assert, Equals, Extends, NotEquals, NotExtends} from "assertion-types";
 
-// Using `export` to avoid unused type errors
-
 // Equals:
-export type EqualsExample = Assert<Equals<123, 123>>;
+type EqualsExample = Assert<Equals<123, 123>>;
 
 // NotEquals:
-export type NotEqualsExample = Assert<NotEquals<123, 456>>;
+type NotEqualsExample = Assert<NotEquals<123, 456>>;
 
 // Extends:
-export type ExtendsExample = Assert<Extends<123, number>>;
+type ExtendsExample = Assert<Extends<123, number>>;
 
 // NotExtends:
-export type NotExtendsExample = Assert<NotExtends<number, 123>>;
+type NotExtendsExample = Assert<NotExtends<number, 123>>;
 ```
 
 ## Getting Started
