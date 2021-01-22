@@ -1,4 +1,4 @@
-#### `assertion-types`
+#### assertion-types
 
 `assertion-types` is a tiny, fast, and, easy-to-learn type-testing library that
 requires no extra build/test setup.
