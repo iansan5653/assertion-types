@@ -1,11 +1,4 @@
 /**
- * @file **assertion-types** | Simple utilities for testing types.
- * @author Ian Sanders
- * @copyright 2020 Ian Sanders
- * @license MIT
- */
-
-/**
  * The core assertion utility. Asserts that `X` is `true`.
  * @example
  * export type AreSameTest = Assert<Equals<123, 123>>;

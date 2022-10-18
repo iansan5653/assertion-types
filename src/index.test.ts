@@ -1,11 +1,4 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-/**
- * @file **type-assertions** | Tests for index.ts.
- * @author Ian Sanders
- * @copyright 2020 Ian Sanders
- * @license MIT
- */
-
 import {Assert, Equals, Extends, NotEquals, NotExtends} from "./index";
 
 // NOTE: Types are exported to avoid unused variable warnings.
