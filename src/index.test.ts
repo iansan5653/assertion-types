@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /**
  * @file **type-assertions** | Tests for index.ts.
  * @author Ian Sanders
