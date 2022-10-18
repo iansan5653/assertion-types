@@ -1,6 +1,6 @@
 {
   "name": "assertion-types",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple utilities for testing types.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
